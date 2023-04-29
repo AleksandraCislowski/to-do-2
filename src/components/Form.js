@@ -34,7 +34,7 @@ export default Form;
 
 const Header = styled.h2`
   font-size: 30px;
-  color: rebeccapurple;
+  color: #9e1eee;
   margin: 0.5rem;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 `;
@@ -47,7 +47,7 @@ const Container1 = styled.div`
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
   padding: 0.5rem;
   margin: 1rem;
-  width: 100%;
+  width: 60rem;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 `;
 
@@ -56,8 +56,7 @@ const Container2 = styled.div`
   flex-direction: column;
   background-color: #deabed;
   border-radius: 12px;
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
-  padding: 0.5rem;
+  padding: 0.5rem 1rem 1rem 1rem;
   margin: 0.25rem;
   width: 50%;
 `;
@@ -67,8 +66,8 @@ const Button1 = styled.button`
   border-radius: 3px;
   border: 2px solid palevioletred;
   color: white;
-  margin: 0 1em;
-  padding: 0.25em 1em;
+  margin: 1rem 0.25rem;
+  padding: 0.25rem 1rem;
   font-weight: bold;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 `;
@@ -78,8 +77,8 @@ const Button2 = styled.button`
   border-radius: 3px;
   border: 2px solid palevioletred;
   color: palevioletred;
-  margin: 0.5em 1em;
-  padding: 0.25em 1em;
+  margin: 1rem;
+  padding: 0.25rem 1rem;
   font-weight: bolder;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 `;
