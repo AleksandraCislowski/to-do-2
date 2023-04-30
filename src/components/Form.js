@@ -36,7 +36,6 @@ const Header = styled.h2`
   font-size: 30px;
   color: #9e1eee;
   margin: 0.5rem;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
 `;
 
 const Container1 = styled.div`
@@ -48,7 +47,6 @@ const Container1 = styled.div`
   padding: 0.5rem;
   margin: 1rem;
   width: 60rem;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
 `;
 
 const Container2 = styled.div`
@@ -69,7 +67,6 @@ const Button1 = styled.button`
   margin: 1rem 0.25rem;
   padding: 0.25rem 1rem;
   font-weight: bold;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
 `;
 
 const Button2 = styled.button`
@@ -80,7 +77,6 @@ const Button2 = styled.button`
   margin: 1rem;
   padding: 0.25rem 1rem;
   font-weight: bolder;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
 `;
 
 const Label = styled.label`
