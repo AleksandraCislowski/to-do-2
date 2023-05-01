@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import Form from "./Form";
+import TodoDate from "./TodoDate";
 
 const NewTodo = (props) => {
   const saveTodoDataHandler = (enteredTodoData) => {
@@ -14,7 +15,10 @@ const NewTodo = (props) => {
     <div>
       <Form onSaveTodoData={saveTodoDataHandler}></Form>
       {props.todos.map((todo) => (
-        <p key={todo.id}>{`${todo.name} ${todo.tag} ${todo.date}`}</p>
+        <div key={todo.id}>
+          {`${todo.name} ${todo.tag}`}
+          <TodoDate date={todo.date} />
+        </div>
       ))}
     </div>
   );

@@ -44,7 +44,8 @@ const Form = (props) => {
         ></input>
         <Label>Select a tag:</Label>{" "}
         <select value={enteredTag} onChange={tagChangeHandler}>
-          <option defaultValue='home'>Home</option>
+          <option defaultValue=''></option>
+          <option value='home'>Home</option>
           <option value='work'>Work</option>
           <option value='fun'>Fun</option>
           <option value='other'>Other</option>
