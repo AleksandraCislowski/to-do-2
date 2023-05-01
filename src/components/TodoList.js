@@ -14,7 +14,7 @@ const NewTodo = (props) => {
     <div>
       <Form onSaveTodoData={saveTodoDataHandler}></Form>
       {props.todos.map((todo) => (
-        <p>{`${todo.name} ${todo.tag} ${todo.date}`}</p>
+        <p key={todo.id}>{`${todo.name} ${todo.tag} ${todo.date}`}</p>
       ))}
     </div>
   );
