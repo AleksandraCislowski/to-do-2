@@ -1,24 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
-const Form = () => {
+const Form = (props) => {
+  const [enteredName, setEnteredName] = useState("");
+  const [enteredTag, setEnteredTag] = useState("");
+  const [enteredDate, setEnteredDate] = useState("");
+
+  const nameChangeHandler = (event) => {
+    setEnteredName(event.target.value);
+  };
+
+  const tagChangeHandler = (event) => {
+    setEnteredTag(event.target.value);
+  };
+
+  const dateChangeHandler = (event) => {
+    setEnteredDate(event.target.value);
+  };
+
+  const submitHandler = (event) => {
+    event.preventDefault();
+
+    const todoData = {
+      name: enteredName,
+      tag: enteredTag,
+      date: new Date(enteredDate),
+    };
+    props.onSaveTodoData(todoData);
+    setEnteredName("");
+    setEnteredTag("");
+    setEnteredDate("");
+  };
+
   return (
-    <Container1>
+    <Container1 onSubmit={submitHandler}>
       <Header>New TODO</Header>
       <Container2>
         <Label>Name:</Label>
-        <input type='text' value=''></input>
+        <input
+          type='text'
+          value={enteredName}
+          onChange={nameChangeHandler}
+        ></input>
         <Label>Select a tag:</Label>{" "}
-        <select>
-          <option selected value='home'>
-            Home
-          </option>
+        <select value={enteredTag} onChange={tagChangeHandler}>
+          <option defaultValue='home'>Home</option>
           <option value='work'>Work</option>
           <option value='fun'>Fun</option>
           <option value='other'>Other</option>
         </select>
         <Label>Date:</Label>
-        <input type='date' min={new Date().toISOString().split("T")[0]} />
+        <input
+          type='date'
+          min={new Date().toISOString().split("T")[0]}
+          value={enteredDate}
+          onChange={dateChangeHandler}
+        />
       </Container2>
       <div>
         <Button1 type='submit'>Create</Button1>
@@ -38,7 +75,7 @@ const Header = styled.h2`
   margin: 0.5rem;
 `;
 
-const Container1 = styled.div`
+const Container1 = styled.form`
   display: flex;
   flex-direction: column;
   background-color: #efe4f6;

@@ -1,38 +1,19 @@
-import React from "react";
-import Form from "./components/Form";
+import React, { useState } from "react";
+import TodoList from "./components/TodoList";
 import "./App.css";
 
-// const DUMMY_DATA = [
-//   {
-//     id: "e1",
-//     title: "Cook some dinner",
-//     tag: "Home",
-//     date: new Date(2023, 5, 1),
-//   },
-//   {
-//     id: "e2",
-//     title: "Make an annual report",
-//     tag: "Work",
-//     date: new Date(2023, 6, 12),
-//   },
-//   {
-//     id: "e3",
-//     title: "Lunch with Molly",
-//     tag: "Fun",
-//     date: new Date(2023, 5, 2),
-//   },
-//   {
-//     id: "e4",
-//     title: "Call a plumber",
-//     tag: "Other",
-//     date: new Date(2023, 5, 21),
-//   },
-// ];
-
 function App() {
+  const [todos, setTodos] = useState([]);
+
+  const addTodoHandler = (todos) => {
+    setTodos((prevTodos) => {
+      return [todos, ...prevTodos];
+    });
+  };
+
   return (
     <div>
-      <Form />
+      <TodoList todos={todos} onAddTodo={addTodoHandler} />
     </div>
   );
 }
