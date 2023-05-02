@@ -16,7 +16,7 @@ const NewTodo = (props) => {
     <div>
       <Form onSaveTodoData={saveTodoDataHandler}></Form>
       {props.todos.map((todo) => (
-        <Container1 key={todo.id}>
+        <Container1 tag={todo.tag} key={todo.id}>
           {`${todo.tag}: ${todo.name}`}
           <TodoDate date={todo.date} />
         </Container1>
@@ -29,7 +29,7 @@ export default NewTodo;
 
 // STYLING SECTION:
 
-const Container1 = styled.form`
+const Container1 = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -39,8 +39,12 @@ const Container1 = styled.form`
   padding: 1rem;
   margin: 1rem;
   width: 60rem;
-
-  ${(tag) => tag.secondary && `background-color: #ad69d7`}
-  ${(tag) => tag.third && `background-color: #244450`}
-   ${(tag) => tag.fourth && `background-color: #62c291`}
+  background-color: ${(props) =>
+    props.tag === "Home"
+      ? `#e697e9`
+      : props.tag === "Work"
+      ? `#6788e4`
+      : props.tag === "Fun"
+      ? `#55e44b`
+      : `#ecc048`};
 `;
