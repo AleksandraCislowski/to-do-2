@@ -45,10 +45,10 @@ const Form = (props) => {
         <Label>Select a tag:</Label>{" "}
         <select value={enteredTag} onChange={tagChangeHandler}>
           <option defaultValue=''></option>
-          <option value='home'>Home</option>
-          <option value='work'>Work</option>
-          <option value='fun'>Fun</option>
-          <option value='other'>Other</option>
+          <option value='Home'>Home</option>
+          <option value='Work'>Work</option>
+          <option value='Fun'>Fun</option>
+          <option value='Other'>Other</option>
         </select>
         <Label>Date:</Label>
         <input
