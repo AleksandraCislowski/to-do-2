@@ -5,6 +5,11 @@ const Form = (props) => {
   const [enteredName, setEnteredName] = useState("");
   const [enteredTag, setEnteredTag] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
+  const [selected, setSelected] = useState("");
+
+  const handleChange = (event) => {
+    setSelected(event.target.value);
+  };
 
   const nameChangeHandler = (event) => {
     setEnteredName(event.target.value);
@@ -42,9 +47,11 @@ const Form = (props) => {
           value={enteredName}
           onChange={nameChangeHandler}
         ></input>
-        <Label>Select a tag:</Label>{" "}
+        <Label>Select a tag:</Label>
         <select value={enteredTag} onChange={tagChangeHandler}>
-          <option defaultValue=''></option>
+          <option disabled={true} value={selected} onChange={handleChange}>
+            Choose an option
+          </option>
           <option value='Home'>Home</option>
           <option value='Work'>Work</option>
           <option value='Fun'>Fun</option>
