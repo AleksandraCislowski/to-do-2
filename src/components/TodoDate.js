@@ -34,4 +34,8 @@ const Box = styled.div`
   display: flex;
   flex-direction: row;
   padding: 0.5rem;
+  background-color: #4e4d4aff;
+  color: white;
+  border-radius: 6px;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
 `;
