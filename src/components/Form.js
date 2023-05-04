@@ -91,7 +91,8 @@ const Container1 = styled.form`
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
   padding: 0.5rem;
   margin: 1rem;
-  width: 60rem;
+  height: 20rem;
+  width: 40rem;
 `;
 
 const Container2 = styled.div`
