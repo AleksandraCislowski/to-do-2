@@ -3,17 +3,39 @@ import TodoList from "./components/TodoList";
 import styled from "styled-components";
 import "./App.css";
 
-// const DUMMY_DATA = [
-//   {
-//     id: "e1",
-//     name: "Make a healthy dinner",
-//     tag: "Home",
-//     date: new Date(2023, 7, 14),
-//   },
-// ];
+const DUMMY_DATA = [
+  {
+    id: "e1",
+    name: "Make a healthy dinner",
+    tag: "Home",
+    date: new Date(),
+    isDone: false,
+  },
+  {
+    id: "e2",
+    name: "Monthly raport!",
+    tag: "Work",
+    date: new Date(),
+    isDone: false,
+  },
+  {
+    id: "e3",
+    name: "Cinema with Emmily",
+    tag: "Fun",
+    date: new Date(),
+    isDone: false,
+  },
+  {
+    id: "e4",
+    name: "Eat some chocolate :)",
+    tag: "Other",
+    date: new Date(),
+    isDone: false,
+  },
+];
 
 function App() {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(DUMMY_DATA);
 
   const addTodoHandler = (todos) => {
     setTodos((prevTodos) => {
