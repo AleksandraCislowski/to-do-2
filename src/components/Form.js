@@ -37,6 +37,12 @@ const Form = (props) => {
     setEnteredDate("");
   };
 
+  const resetFormHandler = () => {
+    setEnteredName("");
+    setEnteredTag("");
+    setEnteredDate("");
+  };
+
   return (
     <Container1 onSubmit={submitHandler}>
       <Header>New TODO</Header>
@@ -66,8 +72,10 @@ const Form = (props) => {
         />
       </Container2>
       <div>
+        <Button2 onClick={resetFormHandler} type='button'>
+          Reset
+        </Button2>
         <Button1 type='submit'>Create</Button1>
-        <Button2 type='button'>Cancel</Button2>
       </div>
     </Container1>
   );

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const TodoDate = ({ date }) => {
+const TodoDate = ({ date, tag }) => {
   const day = date.toLocaleString("en-US", { day: "numeric" });
   const month = date.toLocaleString("en-US", { month: "long" });
   const year = date.getFullYear();
@@ -20,7 +20,7 @@ const TodoDate = ({ date }) => {
   };
 
   return (
-    <Box>
+    <Box tag={tag}>
       <div>{`${day}${nth(day)} ${month} ${year}`}</div>
     </Box>
   );
@@ -33,9 +33,17 @@ export default TodoDate;
 const Box = styled.div`
   display: flex;
   flex-direction: row;
+  text-align: center;
   padding: 0.5rem;
-  background-color: #4e4d4aff;
   color: white;
   border-radius: 6px;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
+  background-color: ${(props) =>
+    props.tag === "Home"
+      ? `#aa53ad`
+      : props.tag === "Work"
+      ? `#2a4798`
+      : props.tag === "Fun"
+      ? `#3da335`
+      : `#ad8d35`};
 `;

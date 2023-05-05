@@ -8,6 +8,7 @@ const NewTodo = (props) => {
     const todoData = {
       ...enteredTodoData,
       id: Math.random().toString(),
+      isDone: false,
     };
     props.onAddTodo(todoData);
   };
@@ -15,17 +16,37 @@ const NewTodo = (props) => {
   return (
     <div>
       <Form onSaveTodoData={saveTodoDataHandler}></Form>
-      {props.todos.map((todo) => (
-        <Container1 tag={todo.tag} key={todo.id}>
-          <p>{todo.tag}</p>
-          <h4>{todo.name}</h4>
-          <TodoDate date={todo.date} />
-          <Buttonbox>
-            <Button1>Done!</Button1>
-            <Button2>Cancel</Button2>
-          </Buttonbox>
-        </Container1>
-      ))}
+      {props.todos
+        .filter((todo) => todo.isDone === false)
+        .map((todo) => (
+          <Container1 tag={todo.tag} key={todo.id}>
+            <p>{todo.tag}</p>
+            <h4>{todo.name}</h4>
+            <TodoDate date={todo.date} tag={todo.tag} />
+            <Buttonbox>
+              <Button1 onClick={() => props.setDone(todo.id)}>Done!</Button1>
+              <Button2 onClick={() => props.cancel(todo.id)}>Cancel</Button2>
+            </Buttonbox>
+          </Container1>
+        ))}
+      <div>
+        <h4>Well done! Those tasks are finished!</h4>
+        {props.todos
+          .filter((todo) => todo.isDone)
+          .map((todo) => (
+            <Container1 tag={todo.tag} key={todo.id}>
+              <p>{todo.tag}</p>
+              <h4>{todo.name}</h4>
+              <TodoDate date={todo.date} tag={todo.tag} />
+              <Buttonbox>
+                <Button1 onClick={() => props.setUndone(todo.id)}>
+                  Retake this task!
+                </Button1>
+                <Button2 onClick={() => props.cancel(todo.id)}>Cancel</Button2>
+              </Buttonbox>
+            </Container1>
+          ))}
+      </div>
     </div>
   );
 };
