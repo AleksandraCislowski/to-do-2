@@ -36,7 +36,7 @@ const NewTodo = (props) => {
         {props.todos
           .filter((todo) => todo.isDone)
           .map((todo) => (
-            <Container2 tag={todo.tag} key={todo.id}>
+            <Container1 tag={todo.tag} key={todo.id} isDone={todo.isDone}>
               <p>{todo.tag}</p>
               <h4>{todo.name}</h4>
               <TodoDate date={todo.date} tag={todo.tag} isDone={todo.isDone} />
@@ -46,7 +46,7 @@ const NewTodo = (props) => {
                 </Button1>
                 <Button2 onClick={() => props.cancel(todo.id)}>Cancel</Button2>
               </Buttonbox>
-            </Container2>
+            </Container1>
           ))}
       </div>
     </div>
@@ -68,6 +68,7 @@ const Container1 = styled.div`
   margin: 1rem;
   height: 6rem;
   width: 40rem;
+  opacity: ${(props) => (!props.isDone ? "1" : "0.5")};
   background-color: ${(props) =>
     props.tag === "Home"
       ? `#e697e9`
@@ -124,24 +125,10 @@ const Buttonbox = styled.div`
 
 const H3 = styled.h3`
   text-align: center;
-  background-color: #4d474e;
+  background-color: #250738;
   border-radius: 12px;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
   padding: 1rem;
   margin: 1rem;
   color: white;
-`;
-
-const Container2 = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 12px;
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
-  padding: 1rem;
-  margin: 1rem;
-  height: 6rem;
-  width: 40rem;
-  background-color: #4d474e;
 `;
