@@ -16,6 +16,12 @@ const NewTodo = (props) => {
   return (
     <div>
       <Form onSaveTodoData={saveTodoDataHandler}></Form>
+      {props.todos.filter((todo) => !todo.isDone).length > 0 && (
+        <H3>Things to do:</H3>
+      )}
+      {props.todos.filter((todo) => !todo.isDone).length === 0 && (
+        <H3>No active tasks to do... Maybe create a new one?</H3>
+      )}
       {props.todos
         .filter((todo) => todo.isDone === false)
         .map((todo) => (
@@ -25,7 +31,7 @@ const NewTodo = (props) => {
             <TodoDate date={todo.date} tag={todo.tag} />
             <Buttonbox>
               <Button1 onClick={() => props.setDone(todo.id)}>Done!</Button1>
-              <Button2 onClick={() => props.cancel(todo.id)}>Cancel</Button2>
+              <Button2 onClick={() => props.cancel(todo.id)}>Delete</Button2>
             </Buttonbox>
           </Container1>
         ))}
@@ -44,7 +50,7 @@ const NewTodo = (props) => {
                 <Button1 onClick={() => props.setUndone(todo.id)}>
                   Retake this task!
                 </Button1>
-                <Button2 onClick={() => props.cancel(todo.id)}>Cancel</Button2>
+                <Button2 onClick={() => props.cancel(todo.id)}>Delete</Button2>
               </Buttonbox>
             </Container1>
           ))}
