@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import TodoList from "./components/TodoList";
+import styled from "styled-components";
 import "./App.css";
 
 // const DUMMY_DATA = [
@@ -48,7 +49,7 @@ function App() {
   };
 
   return (
-    <div>
+    <Container1>
       <TodoList
         todos={todos}
         onAddTodo={addTodoHandler}
@@ -56,8 +57,16 @@ function App() {
         setUndone={setUndone}
         cancel={cancel}
       />
-    </div>
+    </Container1>
   );
 }
 
 export default App;
+
+// STYLING SECTION:
+
+const Container1 = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;

@@ -30,21 +30,23 @@ const NewTodo = (props) => {
           </Container1>
         ))}
       <div>
-        <h4>Well done! Those tasks are finished!</h4>
+        {props.todos.filter((todo) => todo.isDone).length > 0 && (
+          <H3>Finished!</H3>
+        )}
         {props.todos
           .filter((todo) => todo.isDone)
           .map((todo) => (
-            <Container1 tag={todo.tag} key={todo.id}>
+            <Container2 tag={todo.tag} key={todo.id}>
               <p>{todo.tag}</p>
               <h4>{todo.name}</h4>
-              <TodoDate date={todo.date} tag={todo.tag} />
+              <TodoDate date={todo.date} tag={todo.tag} isDone={todo.isDone} />
               <Buttonbox>
                 <Button1 onClick={() => props.setUndone(todo.id)}>
                   Retake this task!
                 </Button1>
                 <Button2 onClick={() => props.cancel(todo.id)}>Cancel</Button2>
               </Buttonbox>
-            </Container1>
+            </Container2>
           ))}
       </div>
     </div>
@@ -118,4 +120,28 @@ const Button2 = styled.button`
 const Buttonbox = styled.div`
   display: flex;
   flex-direction: column;
+`;
+
+const H3 = styled.h3`
+  text-align: center;
+  background-color: #4d474e;
+  border-radius: 12px;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
+  padding: 1rem;
+  margin: 1rem;
+  color: white;
+`;
+
+const Container2 = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 12px;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
+  padding: 1rem;
+  margin: 1rem;
+  height: 6rem;
+  width: 40rem;
+  background-color: #4d474e;
 `;
