@@ -2,18 +2,18 @@ import styled from "styled-components";
 
 function Modal({ closeModal, error }) {
   return (
-    <Modal>
+    <Modalbox>
       <H2>Invalid input</H2>
       <Paragraph>{error}</Paragraph>
       <Button onClick={closeModal}>Okay</Button>
-    </Modal>
+    </Modalbox>
   );
 }
 export default Modal;
 
 // STYLING SECTION:
 
-const Modal = styled.div`
+const Modalbox = styled.div`
   display: flex;
   flex-direction: column;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
