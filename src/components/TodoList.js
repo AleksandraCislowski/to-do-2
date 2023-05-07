@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import Form from "./Form";
 import TodoDate from "./TodoDate";
+import Filter from "./Filter";
 import styled from "styled-components";
 
 const NewTodo = (props) => {
@@ -13,16 +14,27 @@ const NewTodo = (props) => {
     props.onAddTodo(todoData);
   };
 
+  const [activeTag, setActiveTag] = useState("All");
+
+  const filterByTag = () => {
+    if (activeTag !== "All") {
+      return props.todos.filter((todo) => todo.tag === activeTag);
+    } else {
+      return props.todos;
+    }
+  };
+
   return (
     <div>
       <Form onSaveTodoData={saveTodoDataHandler}></Form>
-      {props.todos.filter((todo) => !todo.isDone).length > 0 && (
+      <Filter setActiveTag={setActiveTag}></Filter>
+      {filterByTag().filter((todo) => !todo.isDone).length > 0 && (
         <H3>Things to do:</H3>
       )}
-      {props.todos.filter((todo) => !todo.isDone).length === 0 && (
+      {filterByTag().filter((todo) => !todo.isDone).length === 0 && (
         <H3>No active tasks to do... Maybe create a new one?</H3>
       )}
-      {props.todos
+      {filterByTag()
         .filter((todo) => todo.isDone === false)
         .map((todo) => (
           <Container1 tag={todo.tag} key={todo.id}>
@@ -36,10 +48,10 @@ const NewTodo = (props) => {
           </Container1>
         ))}
       <div>
-        {props.todos.filter((todo) => todo.isDone).length > 0 && (
+        {filterByTag().filter((todo) => todo.isDone).length > 0 && (
           <H3>Finished!</H3>
         )}
-        {props.todos
+        {filterByTag()
           .filter((todo) => todo.isDone)
           .map((todo) => (
             <Container1 tag={todo.tag} key={todo.id} isDone={todo.isDone}>
