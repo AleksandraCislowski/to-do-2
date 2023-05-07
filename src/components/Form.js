@@ -118,6 +118,8 @@ const Header = styled.h2`
 
 const Container1 = styled.form`
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   background-color: #efe4f6;
   border-radius: 12px;
@@ -134,8 +136,8 @@ const Container2 = styled.div`
   background-color: #deabed;
   border-radius: 12px;
   padding: 0.5rem 1rem 1rem 1rem;
-  margin: 0.25rem;
-  width: 50%;
+  margin: 0.5rem;
+  width: 90%;
 `;
 
 const Button1 = styled.button`
