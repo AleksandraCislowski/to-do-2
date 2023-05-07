@@ -29,9 +29,9 @@ const Modalbox = styled.div`
 `;
 
 const H2 = styled.h2`
-  background-color: rgb(122, 7, 105);
+  background-color: rgb(236, 154, 224);
   padding: 0.5rem;
-  color: white;
+  color: rgb(137, 22, 120);
   text-align: left;
 `;
 
@@ -42,9 +42,12 @@ const Paragraph = styled.p`
 `;
 
 const Button = styled.button`
-  background-color: rgb(122, 7, 105);
-  color: white;
+  background-color: rgb(236, 154, 224);
+  color: rgb(137, 22, 120);
+  font-weight: bold;
   align-self: flex-end;
   margin: 1rem 0.5rem;
   padding: 0.3rem 0.8rem;
+  border-radius: 3px;
+  border: 2px solid rgb(137, 22, 120);
 `;

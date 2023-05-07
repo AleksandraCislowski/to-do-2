@@ -30,15 +30,15 @@ const Form = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
     if (enteredName.trim().length === 0) {
-      setError("Please enter a valid task name (non-empty value)");
+      setError("Please enter a valid task name (non-empty value).");
       setModalIsOpen(true);
     } else {
       if (enteredTag.length === 0) {
-        setError("Please choose one of the tags");
+        setError("Please choose one of the tags.");
         setModalIsOpen(true);
       } else {
         if (enteredDate.length === 0) {
-          setError("Please choose a date");
+          setError("Please choose a date.");
           setModalIsOpen(true);
         } else {
           const todoData = {
